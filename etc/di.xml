@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <!-- Add attributes to collections if needed -->
+    <type name="Magento\CatalogGraphQl\Model\Resolver\Products\DataProvider\Product\CollectionProcessorInterface">
+        <plugin name="mageworx_seoxtemplates_gql_add_attribute_to_product_collection"
+                type="MageWorx\SeoXTemplatesGraphQl\Plugin\AddSeoNameToProductCollectionPlugin"
+                sortOrder="1"
+        />
+    </type>
+    <type name="Magento\CatalogGraphQl\Model\AttributesJoiner">
+        <plugin name="mageworx_seoxtemplates_gql_add_attribute_to_category_collection"
+                type="MageWorx\SeoXTemplatesGraphQl\Plugin\AddSeoNameToCategoryCollectionPlugin"
+                sortOrder="1"
+        />
+    </type>
+
+    <!-- Replacing SEO XTemplates dynamic variables for Category -->
+
+    <type name="Magento\CatalogGraphQl\Model\Resolver\Category\CategoryHtmlAttribute">
+        <plugin name="mageworx_seoxtemplates_gql_replace_variables_category_description" type="MageWorx\SeoXTemplatesGraphQl\Plugin\ModifyCategoryDescriptionPlugin" sortOrder="1" />
+    </type>
+
+    <type name="MageWorx\SeoAllGraphQl\Model\Resolver\Category\SeoRenderedElement">
+        <plugin name="mageworx_seoxtemplates_gql_replace_variables_category_meta_params" type="MageWorx\SeoXTemplatesGraphQl\Plugin\ModifyCategoryParamsPlugin" sortOrder="1" />
+    </type>
+
+    <type name="MageWorx\SeoAllGraphQl\Model\Resolver\Category\SeoRenderedElement">
+        <plugin name="mageworx_seoxtemplates_gql_replace_category_name" type="MageWorx\SeoXTemplatesGraphQl\Plugin\ModifyCategoryNamePlugin" sortOrder="1" />
+    </type>
+
+    <!-- Replacing SEO XTemplates dynamic variables for Product -->
+
+    <type name="Magento\CatalogGraphQl\Model\Resolver\Product\ProductComplexTextAttribute">
+        <plugin name="mageworx_seoxtemplates_gql_replace_variables_product_descriptions" type="MageWorx\SeoXTemplatesGraphQl\Plugin\ModifyProductDescriptionsPlugin" sortOrder="1" />
+    </type>
+
+    <type name="MageWorx\SeoAllGraphQl\Model\Resolver\Product\SeoRenderedElement">
+        <plugin name="mageworx_seoxtemplates_gql_replace_variables_product_meta_params" type="MageWorx\SeoXTemplatesGraphQl\Plugin\ModifyProductParamsPlugin" sortOrder="1" />
+    </type>
+
+    <type name="MageWorx\SeoAllGraphQl\Model\Resolver\Product\SeoRenderedElement">
+        <plugin name="mageworx_seoxtemplates_gql_replace_product_name" type="MageWorx\SeoXTemplatesGraphQl\Plugin\ModifyProductNamePlugin" sortOrder="1" />
+    </type>
+
+</config>

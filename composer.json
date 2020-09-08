@@ -1,0 +1,23 @@
+{
+  "name": "mageworx/module-seoxtemplates-graph-ql",
+  "description": "N/A",
+  "type": "magento2-module",
+  "require": {
+    "mageworx/module-seoxtemplates": ">= 2.8.8",
+    "magento/module-cms-graph-ql": ">= 100.3.1 <104",
+    "magento/module-catalog-graph-ql": ">= 100.3.1 <104"
+  },
+  "license": [
+    "OSL-3.0",
+    "AFL-3.0"
+  ],
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "MageWorx\\SeoXTemplatesGraphQl\\": ""
+    }
+  },
+  "version": "1.0.0"
+}
