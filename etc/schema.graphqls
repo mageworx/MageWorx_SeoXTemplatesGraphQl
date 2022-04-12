@@ -1,0 +1,11 @@
+type Products {
+    mw_seo_category_data: MwSeoCategoryData @doc(description: "An object that includes SEO data for category from filter.")
+}
+
+type MwSeoCategoryData @doc(description: "SEO Category data for product list") {
+    meta_title: String @doc(description: "Category Meta Title")
+    meta_description: String @doc(description: "Category Meta Description")
+    meta_keywords: String @doc(description: "Category Meta Keywords")
+    description: String @doc(description: "Category Description")
+    category_seo_name: String @doc(description: "Category SEO Name")
+}
