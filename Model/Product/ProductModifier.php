@@ -71,7 +71,7 @@ class ProductModifier
     public function modify(
         &$resolvedValue,
         ResolveInfo $info,
-        array $args = null
+        ?array $args = null
     ) {
         $fieldSelection      = $info->getFieldSelection(1);
         $requestedAttributes = array_keys($fieldSelection['items']);
