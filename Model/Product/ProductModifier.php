@@ -56,10 +56,10 @@ class ProductModifier
         \Magento\Framework\Event\ManagerInterface $eventManager,
         array $attributes = []
     ) {
-        $this->productFactory             = $productFactory;
-        $this->eventManager               = $eventManager;
-        $this->templateRendererAdapter    = $templateRendererAdapter;
-        $this->attributes                 = $attributes;
+        $this->productFactory          = $productFactory;
+        $this->eventManager            = $eventManager;
+        $this->templateRendererAdapter = $templateRendererAdapter;
+        $this->attributes              = $attributes;
     }
 
     /**
@@ -73,7 +73,12 @@ class ProductModifier
         ResolveInfo $info,
         ?array $args = null
     ) {
-        $fieldSelection      = $info->getFieldSelection(1);
+        $fieldSelection = $info->getFieldSelection(1);
+
+        if (empty($fieldSelection['items']) || !is_array($fieldSelection['items'])) {
+            return;
+        }
+
         $requestedAttributes = array_keys($fieldSelection['items']);
         $attributes          = array_intersect($requestedAttributes, $this->attributes);
 
